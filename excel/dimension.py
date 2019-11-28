@@ -18,7 +18,7 @@ import openpyxl
 #================
 #variable section
 #================
-workbook='example.xlsx'
+workbook='input/example.xlsx'
 target_sheet='sheet1'
 
 #=================

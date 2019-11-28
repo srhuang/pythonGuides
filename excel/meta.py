@@ -1,10 +1,10 @@
 #=============================
-# Name       :formula.py
+# Name       :meta.py
 # Argument   :
 # Email      :lukyandy3162@gmail.com
 # Author     :srhuang
 # History    :
-#    20191127:Initial
+#    20191128:Initial
 #=============================
 
 #===============
@@ -13,14 +13,13 @@
 import os
 import sys
 import openpyxl
+#import pandas as pd
 
 
 #================
 #variable section
 #================
-workbook='example'
-input='input/'+workbook+'.xlsx'
-output='output/'+workbook+'.xlsx'
+workbook='input/example.xlsx'
 target_sheet='sheet1'
 
 #=================
@@ -36,15 +35,11 @@ target_sheet='sheet1'
 #===============
 
 #open work book
-wb=openpyxl.load_workbook(input)
+wb=openpyxl.load_workbook(workbook)
+
+#get sheets
 sheet=wb.get_sheet_by_name(target_sheet)
 
-#formula
-sheet['C'+str(sheet.max_row+1)]='=SUM(C2:C10)'
-
-#save
-wb.save(output)
-
-
-
-
+#get max column and max row
+print "max row :"+str(sheet.max_row)
+print "max column :"+str(sheet.max_column)

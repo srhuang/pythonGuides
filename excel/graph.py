@@ -1,10 +1,10 @@
 #=============================
-# Name       :font.py
+# Name       :graph.py
 # Argument   :
 # Email      :lukyandy3162@gmail.com
 # Author     :srhuang
 # History    :
-#    20191127:Initial
+#    20191128:Initial
 #=============================
 
 #===============
@@ -13,13 +13,14 @@
 import os
 import sys
 import openpyxl
-from openpyxl.styles import Font
 
 
 #================
 #variable section
 #================
-workbook='example.xlsx'
+workbook='example'
+input='input/'+workbook+'.xlsx'
+output='output/'+workbook+'.xlsx'
 target_sheet='sheet1'
 
 #=================
@@ -35,15 +36,14 @@ target_sheet='sheet1'
 #===============
 
 #open work book
-wb=openpyxl.load_workbook(workbook)
+wb=openpyxl.load_workbook(input)
 sheet=wb.get_sheet_by_name(target_sheet)
 
-#get Font object
-Font1 = Font(name='Calibri', size=24, italic=False)
-sheet['A1'].font=Font1
+#graph
+
 
 #save
-wb.save(workbook)
+wb.save(output)
 
 
 
