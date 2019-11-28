@@ -13,7 +13,7 @@
 import os
 import sys
 import openpyxl
-
+from openpyxl.chart import BarChart,Reference
 
 #================
 #variable section
@@ -40,7 +40,15 @@ wb=openpyxl.load_workbook(input)
 sheet=wb.get_sheet_by_name(target_sheet)
 
 #graph
+refObject=Reference(sheet, min_col=3, min_row=2, max_col=3, max_row=12)
+chart=BarChart()
+chart.add_data(refObject)
 
+chart.title="BAR-CHART"
+chart.x_axis.title="X-axis"
+chart.y_axis.title="Y-axis"
+
+sheet.add_chart(chart, "E3")
 
 #save
 wb.save(output)
